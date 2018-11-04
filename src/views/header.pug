@@ -32,44 +32,37 @@ header.header
 			li.modal-tab(data-tab="Groupe")
 				a.modal-toggler(href="#" title="Groupe") Groupe
 		.modal-content
-			.modal-display.is-active(data-tab="Professionnel")
-				.modal-item
-					.modal-section Où ?
-					.modal-data Bastilles, Paris
-				.modal-item
-					.modal-section Combien de personnes ?
-					.modal-data 10
-				.modal-item
-					.modal-section Quand ?
-					.modal-data 23.11.2018
-				.modal-item
-					.modal-section À quelle heure ?
-					.modal-data 17:00
-			.modal-display(data-tab="Particulier")
-				.modal-item
-					.modal-section Où ?
-					.modal-data Luxembourg, Paris
-				.modal-item
-					.modal-section Combien de personnes ?
-					.modal-data 3
-				.modal-item
-					.modal-section Quand ?
-					.modal-data 18.11.2018
-				.modal-item
-					.modal-section À quelle heure ?
-					.modal-data 18:00
-			.modal-display(data-tab="Groupe")
-				.modal-item
-					.modal-section Où ?
-					.modal-data Luxembourg, Paris
-				.modal-item
-					.modal-section Combien de personnes ?
-					.modal-data 20
-				.modal-item
-					.modal-section Quand ?
-					.modal-data 20.11.2018
-				.modal-item
-					.modal-section À quelle heure ?
-					.modal-data 15:00
-			.modal-booking
-				a.modal-button.button.button--blue(href="#" title="Réservation") Réserver
+			.modal-block.is-active(data-tab="Professionnel")
+				.modal-scroll
+					.modal-label Où ?
+					.modal-item Bastilles, Paris
+					.modal-label Combien de personnes ?
+					.modal-item 10
+					.modal-label Quand ?
+					.modal-item 23.11.2018
+					.modal-label À quelle heure ?
+					.modal-item 17:00
+			.modal-block(data-tab="Particulier")
+				.modal-scroll
+					.modal-label Où ?
+					.modal-item Luxembourg, Paris
+					.modal-label Combien de personnes ?
+					.modal-item 3
+					.modal-label Quand ?
+					.modal-item 18.11.2018
+					.modal-label À quelle heure ?
+					.modal-item 18:00
+			.modal-block(data-tab="Groupe")
+				.modal-scroll
+					.modal-label Où ?
+					.modal-item Luxembourg, Paris
+					.modal-label Combien de personnes ?
+					.modal-item 20
+					.modal-label Quand ?
+					.modal-item 20.11.2018
+					.modal-label À quelle heure ?
+					.modal-item 15:00
+			.modal-aside
+				a.button.button--blue(href="#" title="Réservation")
+					img.button-icon(src="images/search.svg", alt="Search")
+					| Réserver

@@ -60,20 +60,54 @@
 		background-color: $white;
 	}
 
-	&-display {
+	&-block {
+		position: relative;
 		display: none;
+		width: 100%;
+		margin-left: - $gutter;
+		overflow: hidden;
 
 		&.is-active {
-			display: flex;
+			display: block;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			width: $gutter;
+			height: 100%;
+		}
+
+		&::before {
+			left: 0;
+			background: linear-gradient(to left, rgba(0, 0, 0, 0), $white);
+		}
+
+		&::after {
+			right: 0;
+			background: linear-gradient(to right, rgba(0, 0, 0, 0), $white);
 		}
 	}
 
-	&-item {
-		width: 21.25rem;
-		margin-right: $gutter;
+	&-scroll {
+		display: grid;
+		grid-auto-flow: column;
+		grid-column-gap: $gutter * 3;
+		width: 100%;
+		padding-left: $gutter;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
-	&-section {
+	&-label {
+		grid-row: 1;
 		margin-bottom: 1.5rem;
 		font-size: 1.5rem;
 		font-weight: 800;
@@ -81,22 +115,15 @@
 		opacity: .5;
 	}
 
-	&-data {
+	&-item {
+		grid-row: 2;
 		font-size: 2.5rem;
 		font-weight: 800;
 	}
 
-	&-booking {
+	&-aside {
 		display: flex;
 		align-items: center;
-	}
-
-	&-button {
-		padding-left: $gutter;
-
-		&::before {
-			content: url(../images/search.svg);
-			margin-right: $gutter;
-		}
+		margin-left: $gutter;
 	}
 }

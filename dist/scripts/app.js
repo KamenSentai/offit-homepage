@@ -44,7 +44,7 @@ try {
 
 var modal = document.querySelector('.modal');
 var tabs = Array.from(modal.querySelectorAll('.modal-tab'));
-var displays = Array.from(modal.querySelectorAll('.modal-display'));
+var blocks = Array.from(modal.querySelectorAll('.modal-block'));
 
 var _loop = function _loop(tab) {
 	tab.addEventListener('click', function (e) {
@@ -53,17 +53,17 @@ var _loop = function _loop(tab) {
 		var activeTab = tabs.find(function (e) {
 			return e.classList.contains('is-active');
 		});
-		var activeDisplay = displays.find(function (e) {
+		var activeBlock = blocks.find(function (e) {
 			return e.classList.contains('is-active');
 		});
-		var clickedDisplay = displays.find(function (e) {
+		var clickedBlock = blocks.find(function (e) {
 			return e.dataset.tab == tab.dataset.tab;
 		});
 
 		activeTab.classList.remove('is-active');
-		activeDisplay.classList.remove('is-active');
+		activeBlock.classList.remove('is-active');
 		tab.classList.add('is-active');
-		clickedDisplay.classList.add('is-active');
+		clickedBlock.classList.add('is-active');
 	});
 };
 

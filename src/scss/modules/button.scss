@@ -1,5 +1,5 @@
 .button {
-	padding: 1.5rem 4rem;
+	padding: 1.5rem $gutter * 2;
 	color: $white;
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -21,5 +21,10 @@
 				background-color: darken($hexa, 5%);
 			}
 		}
+	}
+
+	&-icon {
+		margin-left: - $gutter;
+		margin-right: $gutter;
 	}
 }

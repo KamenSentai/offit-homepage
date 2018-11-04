@@ -271,7 +271,7 @@ main {
   margin-bottom: 8rem; }
 
 .button {
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 40px;
   color: #FFFFFF;
   font-size: 2.5rem;
   font-weight: 700;
@@ -295,6 +295,9 @@ main {
     transition: all .25s ease-in-out; }
     .button--purple:hover {
       background-color: #7167b6; }
+  .button-icon {
+    margin-left: -20px;
+    margin-right: 20px; }
 
 .modal {
   border-bottom-right-radius: .5rem;
@@ -344,36 +347,58 @@ main {
     padding: 30px;
     padding-bottom: 5rem;
     background-color: #FFFFFF; }
-  .modal-display {
-    display: none; }
-    .modal-display.is-active {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-  .modal-item {
-    width: 21.25rem;
-    margin-right: 20px; }
-  .modal-section {
+  .modal-block {
+    position: relative;
+    display: none;
+    width: 100%;
+    margin-left: -20px;
+    overflow: hidden; }
+    .modal-block.is-active {
+      display: block; }
+    .modal-block::before, .modal-block::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 100%; }
+    .modal-block::before {
+      left: 0;
+      background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(#FFFFFF));
+      background: linear-gradient(to left, rgba(0, 0, 0, 0), #FFFFFF); }
+    .modal-block::after {
+      right: 0;
+      background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(#FFFFFF));
+      background: linear-gradient(to right, rgba(0, 0, 0, 0), #FFFFFF); }
+  .modal-scroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 60px;
+    width: 100%;
+    padding-left: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap; }
+    .modal-scroll::-webkit-scrollbar {
+      display: none; }
+  .modal-label {
+    grid-row: 1;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
     opacity: .5; }
-  .modal-data {
+  .modal-item {
+    grid-row: 2;
     font-size: 2.5rem;
     font-weight: 800; }
-  .modal-booking {
+  .modal-aside {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
-  .modal-button {
-    padding-left: 20px; }
-    .modal-button::before {
-      content: url(../images/search.svg);
-      margin-right: 20px; }
+    align-items: center;
+    margin-left: 20px; }
 
 .topbar {
   -webkit-transition: -webkit-transform .75s ease-in-out;
