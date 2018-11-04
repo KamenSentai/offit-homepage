@@ -1,0 +1,56 @@
+.card {
+	$root: &;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	flex: 1 0 0;
+	height: 48rem;
+	margin-right: 1.5rem;
+	color: $white;
+	text-align: left;
+	transition: transform .25s ease-in-out;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover {
+		transform: translateY(-.25rem);
+
+		#{$root}-background {
+			box-shadow: 0 .4rem 1.6rem rgba($black, .5);
+		}
+	}
+
+	&-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 1rem;
+		box-shadow: 0 .2rem .4rem rgba($black, .125);
+		transition: all .25s ease-in-out;
+	}
+
+	&-content {
+		z-index: 1;
+		width: calc(100% - 2 * #{$gutter});
+		margin-bottom: $gutter;
+	}
+
+	&-title {
+		margin-bottom: 1rem;
+		font-size: 4rem;
+		font-weight: 800;
+	}
+
+	&-text {
+		font-size: 2rem;
+		line-height: 1.25;
+	}
+}

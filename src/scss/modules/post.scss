@@ -1,0 +1,34 @@
+.post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: rgba($blue, .05);
+
+	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: grid(10);
+		padding-top: 8rem;
+		padding-bottom: 15rem;
+		text-align: center;
+
+		h2 {
+			width: grid(6);
+		}
+	}
+
+	&-tag {
+		color: $purple;
+		font-size: 1.5rem;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+
+	&-cards {
+		display: flex;
+		width: grid(10);
+		margin-top: 8rem;
+	}
+}

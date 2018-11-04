@@ -11,5 +11,12 @@ html {
 			font-style: italic;
 			font-weight: 200;
 		}
+
+		h2 {
+			color: $blue;
+			font-size: 5rem;
+			font-weight: 600;
+			line-height: 1.5;
+		}
 	}
 }

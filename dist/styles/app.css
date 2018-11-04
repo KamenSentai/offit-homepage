@@ -230,6 +230,11 @@ html {
       font-size: 8rem;
       font-style: italic;
       font-weight: 200; }
+    html body h2 {
+      color: #2D98C2;
+      font-size: 5rem;
+      font-weight: 600;
+      line-height: 1.5; }
 
 .header {
   position: relative; }
@@ -278,7 +283,8 @@ main {
   -ms-flex-align: center;
   align-items: center;
   margin-top: 20rem;
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem;
+  overflow: hidden; }
 
 .button {
   padding: 1.5rem 50px;
@@ -310,6 +316,65 @@ main {
   .button-icon {
     margin-left: -25px;
     margin-right: 25px; }
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 0px;
+  flex: 1 0 0;
+  height: 48rem;
+  margin-right: 1.5rem;
+  color: #FFFFFF;
+  text-align: left;
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out, -webkit-transform .25s ease-in-out; }
+  .card:last-child {
+    margin-right: 0; }
+  .card:hover {
+    -webkit-transform: translateY(-0.25rem);
+    transform: translateY(-0.25rem); }
+    .card:hover .card-background {
+      -webkit-box-shadow: 0 0.4rem 1.6rem rgba(51, 51, 51, 0.5);
+      box-shadow: 0 0.4rem 1.6rem rgba(51, 51, 51, 0.5); }
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 0.2rem 0.4rem rgba(51, 51, 51, 0.125);
+    box-shadow: 0 0.2rem 0.4rem rgba(51, 51, 51, 0.125);
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+  .card-content {
+    z-index: 1;
+    width: calc(100% - 2 * 25px);
+    margin-bottom: 25px; }
+  .card-title {
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 800; }
+  .card-text {
+    font-size: 2rem;
+    line-height: 1.25; }
 
 .modal {
   border-bottom-right-radius: .5rem;
@@ -412,6 +477,48 @@ main {
     align-items: center;
     margin-left: 25px; }
 
+.post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(45, 152, 194, 0.05); }
+  .post-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 1225px;
+    padding-top: 8rem;
+    padding-bottom: 15rem;
+    text-align: center; }
+    .post-container h2 {
+      width: 725px; }
+  .post-tag {
+    color: #8178BE;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase; }
+  .post-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 1225px;
+    margin-top: 8rem; }
+
 .topbar {
   -webkit-box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125);
   box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125);
@@ -458,7 +565,8 @@ main {
     transform: translateY(-100%); }
 
 .wysiwyg {
-  width: 725px; }
+  width: 725px;
+  padding-bottom: 10rem; }
   .wysiwyg-tabbar {
     display: -webkit-box;
     display: -ms-flexbox;
