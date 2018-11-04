@@ -3,13 +3,15 @@
 
 require('./components/button');
 
+require('./components/carousel');
+
 require('./components/modal');
 
 require('./components/wysiwyg');
 
 require('./components/scroll');
 
-},{"./components/button":2,"./components/modal":4,"./components/scroll":6,"./components/wysiwyg":9}],2:[function(require,module,exports){
+},{"./components/button":2,"./components/carousel":3,"./components/modal":5,"./components/scroll":7,"./components/wysiwyg":10}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -44,6 +46,30 @@ try {
 },{}],3:[function(require,module,exports){
 'use strict';
 
+var carousel = document.querySelector('.carousel');
+var thumbnail = carousel.querySelector('.carousel-thumbnail');
+var mask = carousel.querySelector('.carousel-mask');
+
+var windowWidth = window.innerWidth;
+var offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth;
+
+var replaceThumbnail = function replaceThumbnail() {
+	thumbnail.style.transform = 'translateX(' + offsetRight + 'px)';
+};
+replaceThumbnail();
+
+window.addEventListener('resize', function () {
+	windowWidth = window.innerWidth;
+	replaceThumbnail();
+});
+
+mask.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -51,7 +77,7 @@ var header = document.querySelector('.header');
 
 var titles = exports.titles = header.querySelector('.header-titles');
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 var modal = document.querySelector('.modal');
@@ -104,7 +130,7 @@ try {
 	}
 }
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -112,7 +138,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var post = exports.post = document.querySelector('.post');
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 var _header = require('./header');
@@ -176,7 +202,7 @@ window.addEventListener('scroll', function () {
 	}
 });
 
-},{"./header":3,"./post":5,"./shape":7,"./topbar":8,"./wysiwyg":9}],7:[function(require,module,exports){
+},{"./header":4,"./post":6,"./shape":8,"./topbar":9,"./wysiwyg":10}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -184,7 +210,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var shapes = exports.shapes = Array.from(document.querySelectorAll('.shape'));
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -192,7 +218,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var topbar = exports.topbar = document.querySelector('.topbar');
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

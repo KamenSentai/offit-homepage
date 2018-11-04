@@ -1,0 +1,56 @@
+.carousel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+
+	&-container {
+		display: flex;
+		justify-content: space-between;
+		width: grid(10);
+	}
+
+	&-content {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: flex-end;
+		width: grid(4);
+	}
+
+	&-quote {
+		margin-top: 6rem;
+		margin-bottom: 2.5rem;
+		color: rgba($black, .75);
+		font-size: 3rem;
+		font-style: italic;
+		line-height: 1.5;
+	}
+	
+	&-label {
+		color: rgba($black, .75);
+		font-size: 1.8rem;
+		font-weight: 200;
+	}
+
+	&-thumbnail {
+		position: relative;
+		width: grid(6);
+		height: grid(6);
+	}
+
+	&-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&-mask {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		user-select: none;
+	}
+}
