@@ -408,10 +408,10 @@ main {
     align-items: center;
     min-width: 20rem;
     margin-right: 3rem; }
-    .topbar-item--phone::before {
+    .topbar-item a[href^="tel"]::before {
       content: url(../images/phone.svg);
       margin-right: 1rem; }
-    .topbar-item--mail::before {
+    .topbar-item a[href^="mailto"]::before {
       content: url(../images/mail.svg);
       margin-right: 1rem; }
   .topbar.is-hidden {

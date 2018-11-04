@@ -29,13 +29,13 @@
 		min-width: 20rem;
 		margin-right: 3rem;
 
-		$icons: (
-			'phone',
-			'mail'
+		$button: (
+			('tel', 'phone'),
+			('mailto', 'mail')
 		);
 
-		@each $icon in $icons{
-			&--#{$icon} {
+		@each $type, $icon in $button{
+			a[href^="#{$type}"] {
 				&::before {
 					content: url(../images/#{$icon}.svg);
 					margin-right: 1rem;
