@@ -1,2 +1,371 @@
+@import 'https://fonts.googleapis.com/css?family=Nunito:200,200i,400,400i,600,700,800';
+/*
+ * http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote::before,
+q::before,
+blockquote::after,
+q::after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+*,
+*::before,
+*::after,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input,
+button,
+textarea,
+select {
+  color: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  border-radius: 0;
+  -webkit-padding-start: 0;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  text-index: 0;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  line-height: 1em; }
+
+input[type=text],
+input[type=reset],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=tel],
+input[type=url],
+input[type=time],
+input[type=week],
+input[type=month],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=number],
+input[type=submit],
+input[type=color],
+input[type=file],
+button,
+textarea,
+select {
+  height: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+input[type=color] {
+  width: 1em; }
+
+input::-ms-clear {
+  display: none; }
+
+details,
+summary {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+mark {
+  background: none; }
+
+hr {
+  height: 1px;
+  margin: 0;
+  padding: 0; }
+
+u {
+  text-decoration: none; }
+
+table th {
+  text-align: left; }
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none; }
+
+html {
+  font-size: 62.5%; }
+  html body {
+    color: #333333;
+    font-family: 'Nunito', sans-serif; }
+
+.header {
+  position: relative; }
+  .header-background img {
+    width: 100%;
+    height: 100vh;
+    -o-object-fit: cover;
+    object-fit: cover; }
+  .header-titles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 580px;
+    color: #FFFFFF;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    .header-titles h1 {
+      margin-bottom: 6rem;
+      font-size: 8rem;
+      font-style: italic;
+      font-weight: 200; }
+    .header-titles h2 {
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.5; }
+  .header-modal {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 1180px;
+    -webkit-transform: translate(-50%, -14rem);
+    transform: translate(-50%, -14rem); }
+
+main {
+  margin-top: 20rem;
+  margin-bottom: 8rem; }
+
+.button {
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  border-radius: .5rem; }
+  .button--green {
+    background-color: #00C4C7;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+    .button--green:hover {
+      background-color: #00abae; }
+  .button--blue {
+    background-color: #2D98C2;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+    .button--blue:hover {
+      background-color: #2888ad; }
+  .button--purple {
+    background-color: #8178BE;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+    .button--purple:hover {
+      background-color: #7167b6; }
+
+.modal {
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  -webkit-box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125);
+  box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125); }
+  .modal-tabbar {
+    width: 100%;
+    font-size: 2.5rem; }
+  .modal-tab {
+    display: inline-block;
+    width: 25rem;
+    color: #FFFFFF;
+    background-color: #2D98C2;
+    border-right: 0.1rem solid #FFFFFF;
+    border-left: 0.1rem solid #FFFFFF;
+    opacity: .5;
+    -webkit-transition: opacity .25s ease-in-out;
+    transition: opacity .25s ease-in-out; }
+    .modal-tab:first-child, .modal-tab:last-child {
+      border: 0; }
+    .modal-tab:hover {
+      opacity: 1; }
+    .modal-tab a {
+      display: block;
+      padding: 2rem 2.5rem; }
+    .modal-tab.is-active {
+      position: relative;
+      color: #2D98C2;
+      background-color: #FFFFFF;
+      opacity: 1; }
+      .modal-tab.is-active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 2.5rem;
+        width: calc(100% - 2 * 2.5rem);
+        height: .1rem;
+        background-color: #2D98C2; }
+  .modal-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 2.5rem;
+    padding-bottom: 5rem;
+    background-color: #FFFFFF; }
+  .modal-display {
+    display: none; }
+    .modal-display.is-active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+  .modal-item {
+    width: 21.25rem;
+    margin-right: 2rem; }
+  .modal-section {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: .5; }
+  .modal-data {
+    font-size: 2.5rem;
+    font-weight: 800; }
+  .modal-booking {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .modal-button {
+    padding-left: 2rem; }
+    .modal-button::before {
+      content: url(../images/search.svg);
+      margin-right: 2rem; }
 
 /*# sourceMappingURL=app.css.map */

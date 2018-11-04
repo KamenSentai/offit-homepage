@@ -1,0 +1,102 @@
+.modal {
+	$lateralPadding : 2.5rem;
+
+	border-bottom-right-radius: .5rem;
+	border-bottom-left-radius: .5rem;
+	box-shadow: 0 .2rem 2rem rgba($black, .125);
+
+	&-tabbar {
+		width: 100%;
+		font-size: 2.5rem;
+	}
+
+	&-tab {
+		display: inline-block;
+		width: 25rem;
+		color: $white;
+		background-color: $blue;
+		border-right: .1rem solid $white;
+		border-left: .1rem solid $white;
+		opacity: .5;
+		transition: opacity .25s ease-in-out;
+
+		&:first-child,
+		&:last-child {
+			border: 0;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		a {
+			display: block;
+			padding: 2rem $lateralPadding;
+		}
+
+		&.is-active {
+			position: relative;
+			color: $blue;
+			background-color: $white;
+			opacity: 1;
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: $lateralPadding;
+				width: calc(100% - 2 * #{$lateralPadding});
+				height: .1rem;
+				background-color: $blue;
+			}
+		}
+	}
+
+	&-content {
+		display: flex;
+		justify-content: space-between;
+		padding: $lateralPadding;
+		padding-bottom: 5rem;
+		background-color: $white;
+	}
+
+	&-display {
+		display: none;
+
+		&.is-active {
+			display: flex;
+		}
+	}
+
+	&-item {
+		width: 21.25rem;
+		margin-right: 2rem;
+	}
+
+	&-section {
+		margin-bottom: 1.5rem;
+		font-size: 1.5rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		opacity: .5;
+	}
+
+	&-data {
+		font-size: 2.5rem;
+		font-weight: 800;
+	}
+
+	&-booking {
+		display: flex;
+		align-items: center;
+	}
+
+	&-button {
+		padding-left: 2rem;
+
+		&::before {
+			content: url(../images/search.svg);
+			margin-right: 2rem;
+		}
+	}
+}

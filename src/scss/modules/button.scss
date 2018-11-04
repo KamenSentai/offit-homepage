@@ -1,0 +1,25 @@
+.button {
+	padding: 1.5rem 4rem;
+	color: $white;
+	font-size: 2.5rem;
+	font-weight: 700;
+	white-space: nowrap;
+	border-radius: .5rem;
+
+	$colors: (
+		('green', $green),
+		('blue', $blue),
+		('purple', $purple)
+	);
+
+	@each $color, $hexa in $colors {
+		&--#{$color} {
+			background-color: $hexa;
+			transition: all .25s ease-in-out;
+
+			&:hover {
+				background-color: darken($hexa, 5%);
+			}
+		}
+	}
+}
