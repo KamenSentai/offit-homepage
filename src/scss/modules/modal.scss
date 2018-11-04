@@ -1,5 +1,5 @@
 .modal {
-	$lateralPadding : 2.5rem;
+	$lateralPadding: $gutter * 1.5;
 
 	border-bottom-right-radius: .5rem;
 	border-bottom-left-radius: .5rem;
@@ -70,7 +70,7 @@
 
 	&-item {
 		width: 21.25rem;
-		margin-right: 2rem;
+		margin-right: $gutter;
 	}
 
 	&-section {
@@ -92,11 +92,11 @@
 	}
 
 	&-button {
-		padding-left: 2rem;
+		padding-left: $gutter;
 
 		&::before {
 			content: url(../images/search.svg);
-			margin-right: 2rem;
+			margin-right: $gutter;
 		}
 	}
 }

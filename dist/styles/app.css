@@ -320,7 +320,7 @@ main {
       opacity: 1; }
     .modal-tab a {
       display: block;
-      padding: 2rem 2.5rem; }
+      padding: 2rem 30px; }
     .modal-tab.is-active {
       position: relative;
       color: #2D98C2;
@@ -330,8 +330,8 @@ main {
         content: '';
         position: absolute;
         bottom: 0;
-        left: 2.5rem;
-        width: calc(100% - 2 * 2.5rem);
+        left: 30px;
+        width: calc(100% - 2 * 30px);
         height: .1rem;
         background-color: #2D98C2; }
   .modal-content {
@@ -341,7 +341,7 @@ main {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 2.5rem;
+    padding: 30px;
     padding-bottom: 5rem;
     background-color: #FFFFFF; }
   .modal-display {
@@ -352,7 +352,7 @@ main {
       display: flex; }
   .modal-item {
     width: 21.25rem;
-    margin-right: 2rem; }
+    margin-right: 20px; }
   .modal-section {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -370,10 +370,10 @@ main {
     -ms-flex-align: center;
     align-items: center; }
   .modal-button {
-    padding-left: 2rem; }
+    padding-left: 20px; }
     .modal-button::before {
       content: url(../images/search.svg);
-      margin-right: 2rem; }
+      margin-right: 20px; }
 
 .topbar {
   -webkit-transition: -webkit-transform .75s ease-in-out;
@@ -407,7 +407,7 @@ main {
     -ms-flex-align: center;
     align-items: center;
     min-width: 20rem;
-    margin-right: 3rem; }
+    margin-right: 30px; }
     .topbar-item a[href^="tel"]::before {
       content: url(../images/phone.svg);
       margin-right: 1rem; }

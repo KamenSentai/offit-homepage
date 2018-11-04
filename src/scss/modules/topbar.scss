@@ -27,7 +27,7 @@
 		display: inline-flex;
 		align-items: center;
 		min-width: 20rem;
-		margin-right: 3rem;
+		margin-right: $gutter * 1.5;
 
 		$button: (
 			('tel', 'phone'),
