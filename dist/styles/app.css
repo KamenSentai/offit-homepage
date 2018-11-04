@@ -363,12 +363,12 @@ main {
       height: 100%; }
     .modal-block::before {
       left: 0;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(#FFFFFF));
-      background: linear-gradient(to left, rgba(0, 0, 0, 0), #FFFFFF); }
+      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(#FFFFFF));
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), #FFFFFF); }
     .modal-block::after {
       right: 0;
-      background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(#FFFFFF));
-      background: linear-gradient(to right, rgba(0, 0, 0, 0), #FFFFFF); }
+      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#FFFFFF));
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF); }
   .modal-scroll {
     display: grid;
     grid-auto-flow: column;
