@@ -346,8 +346,8 @@ main {
   .card:last-child {
     margin-right: 0; }
   .card:hover {
-    -webkit-transform: translateY(-0.25rem);
-    transform: translateY(-0.25rem); }
+    -webkit-transform: translateY(-0.2rem);
+    transform: translateY(-0.2rem); }
     .card:hover .card-background {
       -webkit-box-shadow: 0 0.4rem 1.6rem rgba(51, 51, 51, 0.5);
       box-shadow: 0 0.4rem 1.6rem rgba(51, 51, 51, 0.5); }
