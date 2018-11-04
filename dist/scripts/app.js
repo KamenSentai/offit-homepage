@@ -5,9 +5,9 @@ require('./components/button');
 
 require('./components/modal');
 
-require('./components/topbar');
+require('./components/scroll');
 
-},{"./components/button":2,"./components/modal":3,"./components/topbar":4}],2:[function(require,module,exports){
+},{"./components/button":2,"./components/modal":4,"./components/scroll":5}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -40,6 +40,16 @@ try {
 }
 
 },{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var header = document.querySelector('.header');
+
+var titles = exports.titles = header.querySelector('.header-titles');
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 var modal = document.querySelector('.modal');
@@ -92,15 +102,28 @@ try {
 	}
 }
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
-var topbar = document.querySelector('.topbar');
-var height = topbar.offsetHeight;
+var _header = require('./header');
+
+var _topbar = require('./topbar');
+
+var height = _topbar.topbar.offsetHeight;
 
 window.addEventListener('scroll', function () {
-	if (window.scrollY > height) topbar.classList.remove('is-hidden');else topbar.classList.add('is-hidden');
+	_header.titles.style.transform = 'translate(-50%, calc(-50% - ' + window.scrollY + 'px / 5))';
+
+	if (window.scrollY > height) _topbar.topbar.classList.remove('is-hidden');else _topbar.topbar.classList.add('is-hidden');
 });
+
+},{"./header":3,"./topbar":6}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var topbar = exports.topbar = document.querySelector('.topbar');
 
 },{}]},{},[1])
 
