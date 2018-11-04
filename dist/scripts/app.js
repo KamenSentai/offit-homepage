@@ -9,7 +9,7 @@ require('./components/wysiwyg');
 
 require('./components/scroll');
 
-},{"./components/button":2,"./components/modal":4,"./components/scroll":5,"./components/wysiwyg":7}],2:[function(require,module,exports){
+},{"./components/button":2,"./components/modal":4,"./components/scroll":6,"./components/wysiwyg":9}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -107,19 +107,84 @@ try {
 },{}],5:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var post = exports.post = document.querySelector('.post');
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
 var _header = require('./header');
 
 var _topbar = require('./topbar');
 
-var height = _topbar.topbar.offsetHeight;
+var _post = require('./post');
+
+var _shape = require('./shape');
+
+var _wysiwyg = require('./wysiwyg');
+
+var heightTopbar = _topbar.topbar.offsetHeight;
+var windowHeight = window.innerHeight;
+
+window.addEventListener('resize', function () {
+	windowHeight = window.innerHeight;
+});
 
 window.addEventListener('scroll', function () {
 	_header.titles.style.transform = 'translate(-50%, calc(-50% - ' + window.scrollY + 'px / 5))';
 
-	if (window.scrollY > height) _topbar.topbar.classList.remove('is-hidden');else _topbar.topbar.classList.add('is-hidden');
+	if (window.scrollY > heightTopbar) {
+		_topbar.topbar.classList.remove('is-hidden');
+	} else {
+		_topbar.topbar.classList.add('is-hidden');
+	}
+
+	var wysiwygTop = _wysiwyg.wysiwyg.getBoundingClientRect().top;
+	var postTop = _post.post.getBoundingClientRect().top;
+
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = _shape.shapes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var shape = _step.value;
+
+			if (shape.classList.contains('shape--1')) {
+				if (wysiwygTop - heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
+					shape.classList.add('is-active');
+				} else {
+					shape.classList.remove('is-active');
+				}
+			}
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
 });
 
-},{"./header":3,"./topbar":6}],6:[function(require,module,exports){
+},{"./header":3,"./post":5,"./shape":7,"./topbar":8,"./wysiwyg":9}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var shapes = exports.shapes = Array.from(document.querySelectorAll('.shape'));
+
+},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -127,10 +192,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 var topbar = exports.topbar = document.querySelector('.topbar');
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
-var wysiwyg = document.querySelector('.wysiwyg');
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var wysiwyg = exports.wysiwyg = document.querySelector('.wysiwyg');
+
 var content = wysiwyg.querySelector('.wysiwyg-content');
 var buttons = Array.from(wysiwyg.querySelectorAll('.wysiwyg-button'));
 var articles = Array.from(wysiwyg.querySelectorAll('.wysiwyg-article'));

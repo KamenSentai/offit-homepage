@@ -1,11 +1,35 @@
 import {titles} from './header'
 import {topbar} from './topbar'
+import {post} from './post'
+import {shapes} from './shape'
+import {wysiwyg} from './wysiwyg'
 
-const height = topbar.offsetHeight
+const heightTopbar = topbar.offsetHeight
+let windowHeight   = window.innerHeight
+
+window.addEventListener('resize', () => {
+	windowHeight = window.innerHeight
+})
 
 window.addEventListener('scroll', () => {
 	titles.style.transform = `translate(-50%, calc(-50% - ${window.scrollY}px / 5))`
 
-	if (window.scrollY > height) topbar.classList.remove('is-hidden')
-	else topbar.classList.add('is-hidden')
+	if (window.scrollY > heightTopbar) {
+		topbar.classList.remove('is-hidden')
+	} else {
+		topbar.classList.add('is-hidden')
+	}
+
+	const wysiwygTop = wysiwyg.getBoundingClientRect().top
+	const postTop    = post.getBoundingClientRect().top
+
+	for (const shape of shapes) {
+		if (shape.classList.contains('shape--1')) {
+			if (wysiwygTop - heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
+				shape.classList.add('is-active')
+			} else {
+				shape.classList.remove('is-active')
+			}
+		}
+	}
 })

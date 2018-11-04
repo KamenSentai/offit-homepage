@@ -1,0 +1,48 @@
+.shape {
+	$root: &;
+
+	position: fixed;
+	z-index: 500;
+	transition: transform 1s ease-in-out;
+
+	&--1 {
+		&#{$root}--green {
+			top: 25%;
+			left: 0;
+			transform: translateX(-100%);
+		}
+
+		&#{$root}--blue {
+			top: 37.5%;
+			right: 0;
+			transform: translateX(100%);
+		}
+
+		&#{$root}--purple {
+			top: 50%;
+			left: 0;
+			transform: translateX(-100%);
+		}
+	}
+
+	&--2 {
+		&#{$root}--green {
+			top: 0;
+			left: 0;
+		}
+
+		&#{$root}--blue {
+			top: 0;
+			right: 0;
+		}
+
+		&#{$root}--purple {
+			top: 0;
+			right: 0;
+		}
+	}
+
+	&.is-active {
+		transform: none;
+	}
+}

@@ -1,4 +1,5 @@
-const wysiwyg  = document.querySelector('.wysiwyg')
+export const wysiwyg = document.querySelector('.wysiwyg')
+
 const content  = wysiwyg.querySelector('.wysiwyg-content')
 const buttons  = Array.from(wysiwyg.querySelectorAll('.wysiwyg-button'))
 const articles = Array.from(wysiwyg.querySelectorAll('.wysiwyg-article'))

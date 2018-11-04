@@ -1,0 +1,1 @@
+export const shapes = Array.from(document.querySelectorAll('.shape'))
