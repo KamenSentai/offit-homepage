@@ -1,9 +1,12 @@
 # Offit
 
-# Description
+## Description
 [Offit](http://www.offit.com) homepage for a request for proposal school project.
 
-# Team
+## Preview
+[kamensentai.github.io/offit-homepage/dist/](https://kamensentai.github.io/offit-homepage/dist/)
+
+## Team
 |Last name     |First name|
 |--------------|----------|
 |Berte         |Adeline   |
@@ -12,5 +15,5 @@
 |Dufrêche      |Éric      |
 |Mrabent       |Ilyes     |
 
-# License
+## License
 This repository is under MIT license.
