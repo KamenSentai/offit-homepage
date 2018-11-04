@@ -5,6 +5,8 @@ const buttons  = Array.from(wysiwyg.querySelectorAll('.wysiwyg-button'))
 const articles = Array.from(wysiwyg.querySelectorAll('.wysiwyg-article'))
 const width    = content.offsetWidth
 
+import {shapes} from './shape'
+
 for (const button of buttons) {
 	button.addEventListener('click', () => {
 		const activeArticle = articles.find(e => e.classList.contains('is-active'))
@@ -18,4 +20,13 @@ for (const button of buttons) {
 
 		content.style.transform = `translateX(-${width * buttons.indexOf(button)}px)`
 	})
+}
+
+for (const shape of shapes) {
+	if (shape.classList.contains('shape--article')) {
+		shape.addEventListener('click', () => {
+			const button = buttons.find(e => e.getAttribute('title') == shape.dataset.article)
+			button.click()
+		})
+	}
 }

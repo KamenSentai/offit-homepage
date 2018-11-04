@@ -178,7 +178,7 @@ window.addEventListener('scroll', function () {
 		for (var _iterator = _shape.shapes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 			var shape = _step.value;
 
-			if (shape.classList.contains('shape--1')) {
+			if (shape.classList.contains('shape--article')) {
 				if (wysiwygTop - heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
 					shape.classList.add('is-active');
 				} else {
@@ -224,6 +224,10 @@ var topbar = exports.topbar = document.querySelector('.topbar');
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.wysiwyg = undefined;
+
+var _shape = require('./shape');
+
 var wysiwyg = exports.wysiwyg = document.querySelector('.wysiwyg');
 
 var content = wysiwyg.querySelector('.wysiwyg-content');
@@ -257,6 +261,7 @@ var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
+
 	for (var _iterator = buttons[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 		var button = _step.value;
 
@@ -277,6 +282,42 @@ try {
 	}
 }
 
-},{}]},{},[1])
+var _loop2 = function _loop2(shape) {
+	if (shape.classList.contains('shape--article')) {
+		shape.addEventListener('click', function () {
+			var button = buttons.find(function (e) {
+				return e.getAttribute('title') == shape.dataset.article;
+			});
+			button.click();
+		});
+	}
+};
+
+var _iteratorNormalCompletion2 = true;
+var _didIteratorError2 = false;
+var _iteratorError2 = undefined;
+
+try {
+	for (var _iterator2 = _shape.shapes[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+		var shape = _step2.value;
+
+		_loop2(shape);
+	}
+} catch (err) {
+	_didIteratorError2 = true;
+	_iteratorError2 = err;
+} finally {
+	try {
+		if (!_iteratorNormalCompletion2 && _iterator2.return) {
+			_iterator2.return();
+		}
+	} finally {
+		if (_didIteratorError2) {
+			throw _iteratorError2;
+		}
+	}
+}
+
+},{"./shape":8}]},{},[1])
 
 //# sourceMappingURL=app.js.map

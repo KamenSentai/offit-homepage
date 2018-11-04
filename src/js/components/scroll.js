@@ -24,7 +24,7 @@ window.addEventListener('scroll', () => {
 	const postTop    = post.getBoundingClientRect().top
 
 	for (const shape of shapes) {
-		if (shape.classList.contains('shape--1')) {
+		if (shape.classList.contains('shape--article')) {
 			if (wysiwygTop - heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
 				shape.classList.add('is-active')
 			} else {
