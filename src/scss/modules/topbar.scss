@@ -1,0 +1,50 @@
+.topbar {
+	transition: transform .75s ease-in-out;
+
+	&-content {
+		width: grid(10);
+	}
+
+	&-section {
+		display: flex;justify-content: center;
+		width: 100%;
+
+		&--contact {
+			padding: 1.5rem 0;
+			font-weight: 600;
+			font-size: 1.5rem;
+			border-bottom: .1rem solid rgba(#989898, .3);
+		}
+
+		&--nav {
+			padding-top: 1.5rem;
+			padding-bottom: 3rem;
+			font-size: 2.2rem;
+		}
+	}
+
+	&-item {
+		display: inline-flex;
+		align-items: center;
+		min-width: 20rem;
+		margin-right: 3rem;
+
+		$icons: (
+			'phone',
+			'mail'
+		);
+
+		@each $icon in $icons{
+			&--#{$icon} {
+				&::before {
+					content: url(../images/#{$icon}.svg);
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+
+	&.is-hidden {
+		transform: translateY(-100%);
+	}
+}

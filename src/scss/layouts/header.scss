@@ -1,6 +1,15 @@
 .header {
 	position: relative;
 
+	&-topbar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+		width: 100%;
+		background-color: $white;
+	}
+
 	&-background {
 		img {
 			width: 100%;

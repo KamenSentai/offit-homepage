@@ -228,6 +228,13 @@ html {
 
 .header {
   position: relative; }
+  .header-topbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #FFFFFF; }
   .header-background img {
     width: 100%;
     height: 100vh;
@@ -367,5 +374,48 @@ main {
     .modal-button::before {
       content: url(../images/search.svg);
       margin-right: 2rem; }
+
+.topbar {
+  -webkit-transition: -webkit-transform .75s ease-in-out;
+  transition: -webkit-transform .75s ease-in-out;
+  transition: transform .75s ease-in-out;
+  transition: transform .75s ease-in-out, -webkit-transform .75s ease-in-out; }
+  .topbar-content {
+    width: 1180px; }
+  .topbar-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%; }
+    .topbar-section--contact {
+      padding: 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.5rem;
+      border-bottom: 0.1rem solid rgba(152, 152, 152, 0.3); }
+    .topbar-section--nav {
+      padding-top: 1.5rem;
+      padding-bottom: 3rem;
+      font-size: 2.2rem; }
+  .topbar-item {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-width: 20rem;
+    margin-right: 3rem; }
+    .topbar-item--phone::before {
+      content: url(../images/phone.svg);
+      margin-right: 1rem; }
+    .topbar-item--mail::before {
+      content: url(../images/mail.svg);
+      margin-right: 1rem; }
+  .topbar.is-hidden {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%); }
 
 /*# sourceMappingURL=app.css.map */

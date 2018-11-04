@@ -5,7 +5,9 @@ require('./components/button');
 
 require('./components/modal');
 
-},{"./components/button":2,"./components/modal":3}],2:[function(require,module,exports){
+require('./components/topbar');
+
+},{"./components/button":2,"./components/modal":3,"./components/topbar":4}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -89,6 +91,16 @@ try {
 		}
 	}
 }
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+var topbar = document.querySelector('.topbar');
+var height = topbar.offsetHeight;
+
+window.addEventListener('scroll', function () {
+	if (window.scrollY > height) topbar.classList.remove('is-hidden');else topbar.classList.add('is-hidden');
+});
 
 },{}]},{},[1])
 
