@@ -1,0 +1,67 @@
+.wysiwyg {
+	$transition: 1s ease-in-out;
+
+	width: grid(6);
+
+	&-tabbar {
+		display: flex;
+		margin: 6rem 0;
+	}
+
+	&-button {
+		flex: 1 0 0;
+		margin-right: $gutter * 2;
+		opacity: .25;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.is-active,
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&-content {
+		display: flex;
+		transition: transform $transition;
+	}
+
+	&-article {
+		flex: 0 0 100%;
+		transition: opacity $transition;
+		opacity: 0;
+
+		&.is-active {
+			opacity: 1;
+		}
+	}
+
+	h2 {
+		color: $blue;
+		font-size: 7rem;
+		font-style: italic;
+		font-weight: 200;
+		text-align: center;
+	}
+
+	p {
+		margin-bottom: 6rem;
+		font-size: 2.5rem;
+		line-height: 1.5;
+		opacity: .75;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	em {
+		font-style: italic;
+	}
+}

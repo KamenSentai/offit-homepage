@@ -5,9 +5,11 @@ require('./components/button');
 
 require('./components/modal');
 
+require('./components/wysiwyg');
+
 require('./components/scroll');
 
-},{"./components/button":2,"./components/modal":4,"./components/scroll":5}],2:[function(require,module,exports){
+},{"./components/button":2,"./components/modal":4,"./components/scroll":5,"./components/wysiwyg":7}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -124,6 +126,61 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var topbar = exports.topbar = document.querySelector('.topbar');
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+var wysiwyg = document.querySelector('.wysiwyg');
+var content = wysiwyg.querySelector('.wysiwyg-content');
+var buttons = Array.from(wysiwyg.querySelectorAll('.wysiwyg-button'));
+var articles = Array.from(wysiwyg.querySelectorAll('.wysiwyg-article'));
+var width = content.offsetWidth;
+
+var _loop = function _loop(button) {
+	button.addEventListener('click', function () {
+		var activeArticle = articles.find(function (e) {
+			return e.classList.contains('is-active');
+		});
+		var activeButton = buttons.find(function (e) {
+			return e.classList.contains('is-active');
+		});
+		var article = articles.find(function (e) {
+			return e.dataset.article == button.getAttribute('title');
+		});
+
+		activeButton.classList.remove('is-active');
+		activeArticle.classList.remove('is-active');
+		button.classList.add('is-active');
+		article.classList.add('is-active');
+
+		content.style.transform = 'translateX(-' + width * buttons.indexOf(button) + 'px)';
+	});
+};
+
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+	for (var _iterator = buttons[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+		var button = _step.value;
+
+		_loop(button);
+	}
+} catch (err) {
+	_didIteratorError = true;
+	_iteratorError = err;
+} finally {
+	try {
+		if (!_iteratorNormalCompletion && _iterator.return) {
+			_iterator.return();
+		}
+	} finally {
+		if (_didIteratorError) {
+			throw _iteratorError;
+		}
+	}
+}
 
 },{}]},{},[1])
 
