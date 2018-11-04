@@ -26,19 +26,12 @@
 		color: $white;
 		text-align: center;
 		transform: translate(-50%, -50%);
+	}
 
-		h1 {
-			margin-bottom: 6rem;
-			font-size: 8rem;
-			font-style: italic;
-			font-weight: 200;
-		}
-
-		h2 {
-			font-size: 3rem;
-			font-weight: 600;
-			line-height: 1.5;
-		}
+	&-subtitle {
+		font-size: 3rem;
+		font-weight: 600;
+		line-height: 1.5;
 	}
 
 	&-modal {

@@ -225,6 +225,11 @@ html {
   html body {
     color: #333333;
     font-family: 'Nunito', sans-serif; }
+    html body h1 {
+      margin-bottom: 6rem;
+      font-size: 8rem;
+      font-style: italic;
+      font-weight: 200; }
 
 .header {
   position: relative; }
@@ -249,15 +254,10 @@ html {
     text-align: center;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-    .header-titles h1 {
-      margin-bottom: 6rem;
-      font-size: 8rem;
-      font-style: italic;
-      font-weight: 200; }
-    .header-titles h2 {
-      font-size: 3rem;
-      font-weight: 600;
-      line-height: 1.5; }
+  .header-subtitle {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.5; }
   .header-modal {
     position: absolute;
     top: 100%;
