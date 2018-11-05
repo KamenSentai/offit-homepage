@@ -9,4 +9,8 @@ main {
 	@media (max-height: 480px) {
 		margin-top: 24rem;
 	}
+
+	@media (max-width: #{grid(6) + $gutter * 2}) {
+		margin-top: 10rem;
+	}
 }

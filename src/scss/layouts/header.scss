@@ -41,6 +41,14 @@
 		@media (max-height: 640px) {
 			margin-top: $gutter * 2;
 		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-subtitle {
