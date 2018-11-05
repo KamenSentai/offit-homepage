@@ -1,0 +1,39 @@
+.phonecard {
+	$root: &;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 4rem;
+	background-color: $white;
+	border-radius: .5rem;
+
+	&:hover {
+		#{$root}-icon {
+			animation: phone-outer 3000ms infinite;
+
+			&::before {
+				animation: phone-inner 3000ms infinite;
+			}
+
+			&::after {
+				animation: phone-icon 3000ms infinite;
+			}
+		}
+	}
+
+	&-label {
+		margin-top: 4rem;
+		margin-bottom: 3rem;
+		color: $blue;
+		font-size: 1.5rem;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+
+	&-text {
+		font-size: 2rem;
+		line-height: 2;
+		opacity: .75;
+	}
+}

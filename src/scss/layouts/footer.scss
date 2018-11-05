@@ -29,9 +29,17 @@
 	}
 
 	&-separator {
+		position: relative;
 		width: 100%;
 		height: .2rem;
 		background-color: rgba($black, .5);
+	}
+
+	&-card {
+		position: absolute;
+		top: -50%;
+		right: grid(.5);
+		transform: translateY(-50%) rotateZ(10deg);
 	}
 
 	&-lists {
