@@ -85,7 +85,6 @@
 	&-lists {
 		display: flex;
 		flex-wrap: wrap;
-		margin-top: 6rem;
 
 		@media (max-width: #{grid(4) + $gutter * 2}) {
 			width: grid(3);
@@ -98,10 +97,6 @@
 		align-items: flex-start;
 		margin-top: 6rem;
 		margin-right: $gutter * 2;
-
-		&:first-child {
-			margin-top: 0;
-		}
 
 		&:last-child {
 			margin-right: 0;
