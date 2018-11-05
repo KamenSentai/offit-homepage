@@ -12,19 +12,34 @@
 
 	&-content {
 		display: flex;
-		justify-content: center;
 		flex-direction: column;
 		align-items: flex-end;
 		width: grid(4);
+		margin-top: grid(1);
 	}
 
 	&-quote {
+		position: relative;
 		margin-top: 6rem;
 		margin-bottom: 2.5rem;
 		color: rgba($black, .75);
 		font-size: 3rem;
 		font-style: italic;
 		line-height: 1.5;
+
+		&::before {
+			content: ',,';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			color: $blue;
+			font-size: 20rem;
+			line-height: .75;
+			letter-spacing: -1rem;
+			opacity: .05;
+			transform: rotateZ(180deg) translateX(25%);
+		}
 	}
 	
 	&-label {

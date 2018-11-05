@@ -402,9 +402,6 @@ main {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -412,14 +409,29 @@ main {
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: flex-end;
-    width: 475px; }
+    width: 475px;
+    margin-top: 100px; }
   .carousel-quote {
+    position: relative;
     margin-top: 6rem;
     margin-bottom: 2.5rem;
     color: rgba(51, 51, 51, 0.75);
     font-size: 3rem;
     font-style: italic;
     line-height: 1.5; }
+    .carousel-quote::before {
+      content: ',,';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      color: #2D98C2;
+      font-size: 20rem;
+      line-height: .75;
+      letter-spacing: -1rem;
+      opacity: .05;
+      -webkit-transform: rotateZ(180deg) translateX(25%);
+      transform: rotateZ(180deg) translateX(25%); }
   .carousel-label {
     color: rgba(51, 51, 51, 0.75);
     font-size: 1.8rem;
