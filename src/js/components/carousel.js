@@ -2,16 +2,27 @@ const carousel  = document.querySelector('.carousel')
 const thumbnail = carousel.querySelector('.carousel-thumbnail')
 const mask      = carousel.querySelector('.carousel-mask')
 
-let windowWidth   = window.innerWidth
-const offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth
+import {lazyloads} from './lazyload'
+import {load}      from './lazyload'
 
-const replaceThumbnail = () => {
+let windowWidth = window.innerWidth
+let offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth
+
+const promise = new Promise(resolve => {
 	thumbnail.style.transform = `translateX(${offsetRight}px)`
-}
-replaceThumbnail()
+	resolve()
+})
+
+promise
+	.then(() => {
+		thumbnail.classList.add('is-active')
+	})
+	.then(load(lazyloads))
 
 window.addEventListener('resize', () => {
 	windowWidth = window.innerWidth
+	offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth
+	thumbnail.style.transform = `translateX(${offsetRight}px)`
 	replaceThumbnail()
 })
 

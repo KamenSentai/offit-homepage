@@ -5,13 +5,15 @@ require('./components/button');
 
 require('./components/carousel');
 
+require('./components/lazyload');
+
 require('./components/modal');
 
 require('./components/wysiwyg');
 
 require('./components/scroll');
 
-},{"./components/button":2,"./components/carousel":3,"./components/modal":5,"./components/scroll":7,"./components/wysiwyg":10}],2:[function(require,module,exports){
+},{"./components/button":2,"./components/carousel":3,"./components/lazyload":5,"./components/modal":6,"./components/scroll":8,"./components/wysiwyg":11}],2:[function(require,module,exports){
 'use strict';
 
 var buttons = Array.from(document.querySelectorAll('.button'));
@@ -46,6 +48,8 @@ try {
 },{}],3:[function(require,module,exports){
 'use strict';
 
+var _lazyload = require('./lazyload');
+
 var carousel = document.querySelector('.carousel');
 var thumbnail = carousel.querySelector('.carousel-thumbnail');
 var mask = carousel.querySelector('.carousel-mask');
@@ -53,13 +57,19 @@ var mask = carousel.querySelector('.carousel-mask');
 var windowWidth = window.innerWidth;
 var offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth;
 
-var replaceThumbnail = function replaceThumbnail() {
+var promise = new Promise(function (resolve) {
 	thumbnail.style.transform = 'translateX(' + offsetRight + 'px)';
-};
-replaceThumbnail();
+	resolve();
+});
+
+promise.then(function () {
+	thumbnail.classList.add('is-active');
+}).then((0, _lazyload.load)(_lazyload.lazyloads));
 
 window.addEventListener('resize', function () {
 	windowWidth = window.innerWidth;
+	offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth;
+	thumbnail.style.transform = 'translateX(' + offsetRight + 'px)';
 	replaceThumbnail();
 });
 
@@ -67,7 +77,7 @@ mask.addEventListener('contextmenu', function (e) {
 	e.preventDefault();
 });
 
-},{}],4:[function(require,module,exports){
+},{"./lazyload":5}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -78,6 +88,52 @@ var header = document.querySelector('.header');
 var titles = exports.titles = header.querySelector('.header-titles');
 
 },{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var lazyloads = exports.lazyloads = document.querySelectorAll('.lazyload');
+
+var load = exports.load = function load(lazyloadsElements) {
+	var _loop = function _loop(lazyload) {
+		var img = lazyload.querySelector('img');
+		var newImg = document.createElement('img');
+
+		newImg.addEventListener('load', function () {
+			lazyload.classList.add('loaded');
+		});
+
+		newImg.src = img.src;
+	};
+
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = lazyloadsElements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var lazyload = _step.value;
+
+			_loop(lazyload);
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+};
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var modal = document.querySelector('.modal');
@@ -130,7 +186,7 @@ try {
 	}
 }
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -138,7 +194,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var post = exports.post = document.querySelector('.post');
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var _header = require('./header');
@@ -202,7 +258,7 @@ window.addEventListener('scroll', function () {
 	}
 });
 
-},{"./header":4,"./post":6,"./shape":8,"./topbar":9,"./wysiwyg":10}],8:[function(require,module,exports){
+},{"./header":4,"./post":7,"./shape":9,"./topbar":10,"./wysiwyg":11}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -210,7 +266,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var shapes = exports.shapes = Array.from(document.querySelectorAll('.shape'));
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -218,7 +274,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var topbar = exports.topbar = document.querySelector('.topbar');
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -318,6 +374,6 @@ try {
 	}
 }
 
-},{"./shape":8}]},{},[1])
+},{"./shape":9}]},{},[1])
 
 //# sourceMappingURL=app.js.map

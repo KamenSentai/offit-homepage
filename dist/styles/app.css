@@ -338,6 +338,8 @@ main {
   height: 48rem;
   margin-right: 1.5rem;
   color: #FFFFFF;
+  border-radius: 1rem;
+  overflow: hidden;
   text-align: left;
   -webkit-transition: -webkit-transform .25s ease-in-out;
   transition: -webkit-transform .25s ease-in-out;
@@ -359,7 +361,6 @@ main {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    border-radius: 1rem;
     -webkit-box-shadow: 0 0.2rem 0.4rem rgba(51, 51, 51, 0.125);
     box-shadow: 0 0.2rem 0.4rem rgba(51, 51, 51, 0.125);
     -webkit-transition: all .25s ease-in-out;
@@ -425,7 +426,20 @@ main {
   .carousel-thumbnail {
     position: relative;
     width: 725px;
-    height: 725px; }
+    height: 725px;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out; }
+    .carousel-thumbnail::after {
+      content: '';
+      position: absolute;
+      left: -.1rem;
+      top: 0;
+      width: .2rem;
+      height: 100%;
+      background-color: #FFFFFF; }
+    .carousel-thumbnail.is-active {
+      opacity: 1; }
   .carousel-image {
     width: 100%;
     height: 100%;
@@ -441,6 +455,34 @@ main {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
+
+.lazyload {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFFFFF;
+  font-size: 0; }
+  .lazyload::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(#00C4C7), color-stop(50%, #2D98C2), to(#8178BE));
+    background: linear-gradient(to right, #00C4C7 0%, #2D98C2 50%, #8178BE 100%);
+    opacity: .5; }
+  .lazyload--turned::before {
+    background: -webkit-gradient(linear, left top, left bottom, from(#00C4C7), color-stop(50%, #2D98C2), to(#8178BE));
+    background: linear-gradient(to bottom, #00C4C7 0%, #2D98C2 50%, #8178BE 100%); }
+  .lazyload img:not(.no-lazyload) {
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity; }
+  .lazyload.loaded img {
+    opacity: 1; }
 
 .modal {
   border-bottom-right-radius: .5rem;
