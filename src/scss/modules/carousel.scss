@@ -39,6 +39,7 @@
 		height: grid(6);
 		opacity: 0;
 		transition: opacity 1s ease-in-out;
+		will-change: opacity;
 
 		&::after {
 			content: '';

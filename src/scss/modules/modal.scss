@@ -19,6 +19,7 @@
 		border-left: .1rem solid $white;
 		opacity: .5;
 		transition: opacity .25s ease-in-out;
+		will-change: opacity;
 
 		&:first-child,
 		&:last-child {

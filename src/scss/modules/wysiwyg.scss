@@ -26,11 +26,13 @@
 	&-content {
 		display: flex;
 		transition: transform $transition;
+		will-change: transform;
 	}
 
 	&-article {
 		flex: 0 0 100%;
 		transition: opacity $transition;
+		will-change: opacity;
 		opacity: 0;
 
 		&.is-active {
