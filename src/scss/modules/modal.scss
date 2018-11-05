@@ -1,9 +1,9 @@
 .modal {
-	$lateralPadding: $gutter * 1.5;
+	$verticalPadding: 2rem;
+	$horizontalPadding: $gutter * 1.5;
 
 	border-bottom-right-radius: .5rem;
 	border-bottom-left-radius: .5rem;
-	box-shadow: 0 .2rem 2rem rgba($black, .125);
 
 	&-tabbar {
 		width: 100%;
@@ -30,35 +30,47 @@
 			opacity: 1;
 		}
 
-		a {
-			display: block;
-			padding: 2rem $lateralPadding;
-		}
-
 		&.is-active {
 			position: relative;
 			color: $blue;
 			background-color: $white;
 			opacity: 1;
+			box-shadow: 0 .2rem 1rem rgba($black, .125);
+
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: - $verticalPadding;
+				left: 0;
+				width: 100%;
+				height: $verticalPadding * 2;
+				background-color: $white;
+			}
 
 			&::after {
 				content: '';
 				position: absolute;
 				bottom: 0;
-				left: $lateralPadding;
-				width: calc(100% - 2 * #{$lateralPadding});
+				left: $horizontalPadding;
+				width: calc(100% - 2 * #{$horizontalPadding});
 				height: .1rem;
 				background-color: $blue;
 			}
 		}
 	}
 
+	&-toggler {
+		display: block;
+		padding: $verticalPadding $horizontalPadding;
+	}
+
 	&-content {
 		display: flex;
 		justify-content: space-between;
-		padding: $lateralPadding;
+		padding: $horizontalPadding;
 		padding-bottom: 5rem;
 		background-color: $white;
+		box-shadow: 0 .2rem 2rem rgba($black, .125);
 	}
 
 	&-block {

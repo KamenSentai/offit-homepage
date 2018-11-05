@@ -488,9 +488,7 @@ main {
 
 .modal {
   border-bottom-right-radius: .5rem;
-  border-bottom-left-radius: .5rem;
-  -webkit-box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125);
-  box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125); }
+  border-bottom-left-radius: .5rem; }
   .modal-tabbar {
     width: 100%;
     font-size: 2.5rem; }
@@ -509,14 +507,21 @@ main {
       border: 0; }
     .modal-tab:hover {
       opacity: 1; }
-    .modal-tab a {
-      display: block;
-      padding: 2rem 37.5px; }
     .modal-tab.is-active {
       position: relative;
       color: #2D98C2;
       background-color: #FFFFFF;
-      opacity: 1; }
+      opacity: 1;
+      -webkit-box-shadow: 0 0.2rem 1rem rgba(51, 51, 51, 0.125);
+      box-shadow: 0 0.2rem 1rem rgba(51, 51, 51, 0.125); }
+      .modal-tab.is-active::before {
+        content: '';
+        position: absolute;
+        bottom: -2rem;
+        left: 0;
+        width: 100%;
+        height: 4rem;
+        background-color: #FFFFFF; }
       .modal-tab.is-active::after {
         content: '';
         position: absolute;
@@ -525,6 +530,9 @@ main {
         width: calc(100% - 2 * 37.5px);
         height: .1rem;
         background-color: #2D98C2; }
+  .modal-toggler {
+    display: block;
+    padding: 2rem 37.5px; }
   .modal-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -534,7 +542,9 @@ main {
     justify-content: space-between;
     padding: 37.5px;
     padding-bottom: 5rem;
-    background-color: #FFFFFF; }
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125);
+    box-shadow: 0 0.2rem 2rem rgba(51, 51, 51, 0.125); }
   .modal-block {
     position: relative;
     display: none;
