@@ -37,8 +37,15 @@
 	&-item {
 		display: inline-flex;
 		align-items: center;
-		min-width: 20rem;
 		margin-right: $gutter * 1.5;
+
+		&:first-child {
+			min-width: 20rem;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
 
 		$button: (
 			('tel', 'phone'),
