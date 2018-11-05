@@ -3,9 +3,16 @@ export const wysiwyg = document.querySelector('.wysiwyg')
 const content  = wysiwyg.querySelector('.wysiwyg-content')
 const buttons  = Array.from(wysiwyg.querySelectorAll('.wysiwyg-button'))
 const articles = Array.from(wysiwyg.querySelectorAll('.wysiwyg-article'))
-const width    = content.offsetWidth
+
+let width = content.offsetWidth
 
 import {shapes} from './shape'
+
+window.addEventListener('resize', () => {
+	width = content.offsetWidth
+	const activeButton = buttons.find(e => e.classList.contains('is-active'))
+	content.style.transform = `translateX(-${width * buttons.indexOf(activeButton)}px)`
+})
 
 for (const button of buttons) {
 	button.addEventListener('click', () => {
