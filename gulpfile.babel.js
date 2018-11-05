@@ -62,11 +62,12 @@ const message = {
 
 // Server
 
-gulp.task('server', ['images', 'styles', 'scripts', 'views'], () => {
+gulp.task('server', ['data', 'images', 'styles', 'scripts', 'views'], () => {
   browserSync.init({
     proxy   : `http://localhost/${local}${config.dist}`,
     browser : 'Google Chrome'
   })
+  gulp.watch(`${config.src}data/*.json`, ['data'])
   gulp.watch(`${config.src}img/*.+(png|jpg|jpeg|gif|svg)`, ['images'])
   gulp.watch([
     `${config.src}scss/**/*.scss`,
@@ -76,6 +77,25 @@ gulp.task('server', ['images', 'styles', 'scripts', 'views'], () => {
     `${config.src}**/*.pug`,
     `${config.src}*.pug`
   ],['views'])
+})
+
+// Data
+
+gulp.task('data', () => {
+  return gulp.src(`${config.src}data/*.json`)
+    .pipe($.plumber())
+    .on('error', $.notify.onError({
+      title   : 'JSON',
+      message : message.error,
+      sound   : 'beep'
+    }))
+    .pipe(gulp.dest(`${config.dist}data/`))
+    .pipe(browserSync.stream())
+    .pipe($.notify({
+      title   : 'JSON',
+      message : message.exported,
+      sound   : 'beep'
+    }))
 })
 
 // Images

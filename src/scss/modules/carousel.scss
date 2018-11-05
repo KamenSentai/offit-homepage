@@ -11,11 +11,20 @@
 	}
 
 	&-content {
+		width: grid(4);
+		margin-top: grid(1);
+	}
+
+	&-group {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-		width: grid(4);
-		margin-top: grid(1);
+	}
+
+	&-quote,
+	&-label {
+		transition: opacity 1s ease-in-out;
+		will-change: opacity;
 	}
 
 	&-quote {
@@ -46,6 +55,7 @@
 		color: rgba($black, .75);
 		font-size: 1.8rem;
 		font-weight: 200;
+		transition-delay: .5s;
 	}
 
 	&-thumbnail {

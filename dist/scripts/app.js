@@ -51,8 +51,14 @@ try {
 var _lazyload = require('./lazyload');
 
 var carousel = document.querySelector('.carousel');
+var group = carousel.querySelector('.carousel-group');
+var quote = group.querySelector('.carousel-quote');
+var label = group.querySelector('.carousel-label');
 var thumbnail = carousel.querySelector('.carousel-thumbnail');
 var mask = carousel.querySelector('.carousel-mask');
+
+var delay = 10000;
+var duration = 1500;
 
 var windowWidth = window.innerWidth;
 var offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth;
@@ -75,6 +81,34 @@ window.addEventListener('resize', function () {
 
 mask.addEventListener('contextmenu', function (e) {
 	e.preventDefault();
+});
+
+fetch('data/quotes.json').then(function (response) {
+	return response.json();
+}).then(function (json) {
+	var step = 0;
+
+	window.setInterval(function () {
+		step = (step + 1) % json.quotes.length;
+		var img = thumbnail.querySelector('img');
+		promise.then(function () {
+			quote.style.opacity = '0';
+			label.style.opacity = '0';
+			img.style.opacity = '0';
+		}).then(function () {
+			setTimeout(function () {
+				quote.textContent = json.quotes[step].quote;
+				label.textContent = json.quotes[step].label;
+				img.src = 'images/' + json.quotes[step].image;
+			}, duration);
+		}).then(function () {
+			setTimeout(function () {
+				quote.style.opacity = '1';
+				label.style.opacity = '1';
+				img.style.opacity = '1';
+			}, duration);
+		});
+	}, delay);
 });
 
 },{"./lazyload":5}],4:[function(require,module,exports){
