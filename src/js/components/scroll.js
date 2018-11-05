@@ -12,7 +12,7 @@ window.addEventListener('resize', () => {
 })
 
 window.addEventListener('scroll', () => {
-	titles.style.transform = `translate(-50%, calc(-50% - ${window.scrollY}px / 5))`
+	titles.style.transform = `translateY(-${window.scrollY / 5}px)`
 
 	if (window.scrollY > heightTopbar) {
 		topbar.classList.remove('is-hidden')

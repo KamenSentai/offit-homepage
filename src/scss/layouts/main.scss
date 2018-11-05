@@ -5,4 +5,8 @@ main {
 	margin-top: 20rem;
 	margin-bottom: 8rem;
 	overflow: hidden;
+
+	@media (max-height: 480px) {
+		margin-top: 24rem;
+	}
 }

@@ -18,6 +18,14 @@
 
 		h2 {
 			width: grid(6);
+
+			@media (max-width: #{grid(6) + $gutter * 2}) {
+				width: grid(4);
+			}
+
+			@media (max-width: #{grid(4) + $gutter * 2}) {
+				width: grid(3);
+			}
 		}
 	}
 
@@ -30,7 +38,23 @@
 
 	&-cards {
 		display: flex;
+		flex-wrap: wrap;
 		width: grid(10);
 		margin-top: 8rem;
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			width: grid(6);
+			margin-top: 6rem;
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+			margin-top: 4rem;
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+			margin-top: 2rem;
+		}
 	}
 }

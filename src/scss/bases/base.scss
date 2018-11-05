@@ -10,6 +10,10 @@ html {
 			font-size: 8rem;
 			font-style: italic;
 			font-weight: 200;
+
+			@media (max-height: 520px) {
+				margin-bottom: 2rem;
+			}
 		}
 
 		h2 {

@@ -64,7 +64,6 @@ window.addEventListener('resize', () => {
 	windowWidth = window.innerWidth
 	offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth
 	thumbnail.style.transform = `translateX(${offsetRight}px)`
-	replaceThumbnail()
 })
 
 mask.addEventListener('contextmenu', e => {

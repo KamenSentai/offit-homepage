@@ -7,12 +7,42 @@
 	&-container {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 		width: grid(10);
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			width: grid(8);
+		}
+
+		@media (max-width: #{grid(8) + $gutter * 2}) {
+			width: grid(6);
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-content {
 		width: grid(4);
-		margin-top: grid(1);
+		margin: grid(1) 0;
+
+		@media (max-width: #{grid(8) + $gutter * 2}) {
+			width: grid(3);
+			margin-top: 0;
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-group {
@@ -65,6 +95,26 @@
 		opacity: 0;
 		transition: opacity 1s ease-in-out;
 		will-change: opacity;
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			width: grid(4);
+			height: grid(4);
+		}
+
+		@media (max-width: #{grid(8) + $gutter * 2}) {
+			width: grid(3);
+			height: grid(3);
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+			height: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+			height: grid(3);
+		}
 
 		&::after {
 			content: '';

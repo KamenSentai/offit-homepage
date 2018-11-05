@@ -7,6 +7,22 @@
 
 	&-container {
 		width: grid(10);
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			width: grid(8);
+		}
+
+		@media (max-width: #{grid(8) + $gutter * 2}) {
+			width: grid(6);
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-post {
@@ -17,6 +33,14 @@
 		width: grid(6);
 		color: $blue;
 		font-size: 5rem;
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-text {
@@ -26,6 +50,14 @@
 		font-size: 4rem;
 		line-height: 1.5;
 		opacity: .5;
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			width: grid(4);
+		}
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-separator {
@@ -40,18 +72,36 @@
 		top: -50%;
 		right: grid(.5);
 		transform: translateY(-50%) rotateZ(10deg);
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			transform: translateY(-100%) rotateZ(10deg);
+		}
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			display: none !important;
+		}
 	}
 
 	&-lists {
 		display: flex;
+		flex-wrap: wrap;
 		margin-top: 6rem;
+
+		@media (max-width: #{grid(4) + $gutter * 2}) {
+			width: grid(3);
+		}
 	}
 
 	&-column {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		margin-top: 6rem;
 		margin-right: $gutter * 2;
+
+		&:first-child {
+			margin-top: 0;
+		}
 
 		&:last-child {
 			margin-right: 0;

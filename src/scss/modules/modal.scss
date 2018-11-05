@@ -12,7 +12,7 @@
 
 	&-tab {
 		display: inline-block;
-		width: 25rem;
+		min-width: 25rem;
 		color: $white;
 		background-color: $blue;
 		border-right: .1rem solid $white;
@@ -20,6 +20,11 @@
 		opacity: .5;
 		transition: opacity .25s ease-in-out;
 		will-change: opacity;
+
+		@media (max-width: #{grid(8) + $gutter * 2}) {
+			min-width: 15rem;
+			font-size: 2rem;
+		}
 
 		&:first-child,
 		&:last-child {
@@ -55,6 +60,11 @@
 				width: calc(100% - 2 * #{$horizontalPadding});
 				height: .1rem;
 				background-color: $blue;
+
+				@media (max-width: #{grid(6) + $gutter * 2}) {
+					left: $horizontalPadding / 1.5;
+					width: calc(100% - 2 * #{$horizontalPadding / 1.5});
+				}
 			}
 		}
 	}
@@ -62,6 +72,10 @@
 	&-toggler {
 		display: block;
 		padding: $verticalPadding $horizontalPadding;
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			padding: $verticalPadding $horizontalPadding / 1.5;
+		}
 	}
 
 	&-content {
@@ -71,6 +85,10 @@
 		padding-bottom: 5rem;
 		background-color: $white;
 		box-shadow: 0 .2rem 2rem rgba($black, .125);
+
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			padding: $horizontalPadding / 1.5;
+		}
 	}
 
 	&-block {
@@ -89,6 +107,7 @@
 			content: '';
 			position: absolute;
 			top: 0;
+			z-index: 10;
 			width: $gutter;
 			height: 100%;
 		}
@@ -113,6 +132,10 @@
 		overflow-x: scroll;
 		overflow-y: hidden;
 		white-space: nowrap;
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			grid-column-gap: $gutter;
+		}
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -139,5 +162,11 @@
 		display: flex;
 		align-items: center;
 		margin-left: $gutter;
+	}
+
+	&-button {
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			padding: 1.5rem $gutter;
+		}
 	}
 }

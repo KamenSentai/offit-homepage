@@ -9,6 +9,10 @@
 	&--article {
 		opacity: .75;
 
+		@media (max-width: #{grid(6) + $gutter * 2}) {
+			display: none;
+		}
+
 		&:hover {
 			opacity: 1;
 		}

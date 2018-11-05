@@ -4,8 +4,16 @@
 	transition: transform .75s ease-in-out;
 	will-change: transform;
 
+	@media (max-width: #{grid(8) + $gutter * 2}) {
+		display: none;
+	}
+
 	&-content {
 		width: grid(10);
+
+		@media (max-width: #{grid(10) + $gutter * 2}) {
+			width: grid(8);
+		}
 	}
 
 	&-section {

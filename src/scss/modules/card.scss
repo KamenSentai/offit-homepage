@@ -1,30 +1,41 @@
 .card {
 	$root: &;
 
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
 	flex: 1 0 0;
 	height: 48rem;
-	margin-right: 1.5rem;
+	padding: 1.5rem;
 	color: $white;
-	border-radius: 1rem;
-	overflow: hidden;
 	text-align: left;
-	transition: transform .25s ease-in-out;
-	will-change: transform;
 
-	&:last-child {
-		margin-right: 0;
+	@media (max-width: #{grid(10) + $gutter * 2}) {
+		flex: 0 0 50%;
 	}
 
-	&:hover {
-		transform: translateY(-.2rem);
+	@media (max-width: #{grid(6) + $gutter * 2}) {
+		flex: 0 0 100%;
+	}
 
-		#{$root}-background {
-			box-shadow: 0 .4rem 1.6rem rgba($black, .5);
+	&-container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		height: 100%;
+		transition: transform .25s ease-in-out;
+		will-change: transform;
+
+		&::before {
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+
+		&:hover {
+			transform: translateY(-.2rem);
+
+			#{$root}-background {
+				box-shadow: 0 .4rem 1.6rem rgba($black, .5);
+			}
 		}
 	}
 
@@ -35,6 +46,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		border-radius: 1rem;
 		box-shadow: 0 .2rem .4rem rgba($black, .125);
 		transition: all .25s ease-in-out;
 	}

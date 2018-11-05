@@ -20,49 +20,50 @@ header.header
 						a.topbar-button(href="#", title="Réserver votre séance", data-target="footer") Réserver votre séance
 	.header-background.lazyload
 		img(src="images/header.png", alt="Offit")
-	.header-titles
-		h1 Faites du sport au travail
-		.header-subtitle Avec Offit, prenez soin de votre corps directement sur votre lieu de travail.
-	.header-modal.modal
-		ul.modal-tabbar
-			li.modal-tab.is-active(data-tab="Professionnel")
-				a.modal-toggler(href="#", title="Professionnel") Professionnel
-			li.modal-tab(data-tab="Particulier")
-				a.modal-toggler(href="#", title="Particulier") Particulier
-			li.modal-tab(data-tab="Groupe")
-				a.modal-toggler(href="#", title="Groupe") Groupe
-		.modal-content
-			.modal-block.is-active(data-tab="Professionnel")
-				.modal-scroll
-					.modal-label Où ?
-					.modal-item Bastilles, Paris
-					.modal-label Combien de personnes ?
-					.modal-item 10
-					.modal-label Quand ?
-					.modal-item 23.11.2018
-					.modal-label À quelle heure ?
-					.modal-item 17:00
-			.modal-block(data-tab="Particulier")
-				.modal-scroll
-					.modal-label Où ?
-					.modal-item Luxembourg, Paris
-					.modal-label Combien de personnes ?
-					.modal-item 3
-					.modal-label Quand ?
-					.modal-item 18.11.2018
-					.modal-label À quelle heure ?
-					.modal-item 18:00
-			.modal-block(data-tab="Groupe")
-				.modal-scroll
-					.modal-label Où ?
-					.modal-item Luxembourg, Paris
-					.modal-label Combien de personnes ?
-					.modal-item 20
-					.modal-label Quand ?
-					.modal-item 20.11.2018
-					.modal-label À quelle heure ?
-					.modal-item 15:00
-			.modal-aside
-				a.button.button--blue(href="#", title="Réservation")
-					img.button-icon(src="images/search.svg", alt="Search")
-					| Réserver
+	.header-jumbotron
+		.header-titles
+			h1 Faites du sport au travail
+			.header-subtitle Avec Offit, prenez soin de votre corps directement sur votre lieu de travail.
+		.header-modal.modal
+			ul.modal-tabbar
+				li.modal-tab.is-active(data-tab="Professionnel")
+					a.modal-toggler(href="#", title="Professionnel") Professionnel
+				li.modal-tab(data-tab="Particulier")
+					a.modal-toggler(href="#", title="Particulier") Particulier
+				li.modal-tab(data-tab="Groupe")
+					a.modal-toggler(href="#", title="Groupe") Groupe
+			.modal-content
+				.modal-block.is-active(data-tab="Professionnel")
+					.modal-scroll
+						.modal-label Où ?
+						.modal-item Bastilles, Paris
+						.modal-label Combien de personnes ?
+						.modal-item 10
+						.modal-label Quand ?
+						.modal-item 23.11.2018
+						.modal-label À quelle heure ?
+						.modal-item 17:00
+				.modal-block(data-tab="Particulier")
+					.modal-scroll
+						.modal-label Où ?
+						.modal-item Luxembourg, Paris
+						.modal-label Combien de personnes ?
+						.modal-item 3
+						.modal-label Quand ?
+						.modal-item 18.11.2018
+						.modal-label À quelle heure ?
+						.modal-item 18:00
+				.modal-block(data-tab="Groupe")
+					.modal-scroll
+						.modal-label Où ?
+						.modal-item Luxembourg, Paris
+						.modal-label Combien de personnes ?
+						.modal-item 20
+						.modal-label Quand ?
+						.modal-item 20.11.2018
+						.modal-label À quelle heure ?
+						.modal-item 15:00
+				.modal-aside
+					a.modal-button.button.button--blue(href="#", title="Réservation")
+						img.button-icon(src="images/search.svg", alt="Search")
+						| Réserver
