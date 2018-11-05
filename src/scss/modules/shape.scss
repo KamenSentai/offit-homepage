@@ -36,23 +36,6 @@
 		}
 	}
 
-	&--2 {
-		&#{$root}--green {
-			top: 0;
-			left: 0;
-		}
-
-		&#{$root}--blue {
-			top: 0;
-			right: 0;
-		}
-
-		&#{$root}--purple {
-			top: 0;
-			right: 0;
-		}
-	}
-
 	&.is-active {
 		transform: none;
 	}
