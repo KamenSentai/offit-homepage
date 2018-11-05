@@ -63,14 +63,45 @@ var duration = 1500;
 var windowWidth = window.innerWidth;
 var offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth;
 
-var promise = new Promise(function (resolve) {
+var loadPromise = new Promise(function (resolve) {
 	thumbnail.style.transform = 'translateX(' + offsetRight + 'px)';
 	resolve();
 });
 
-promise.then(function () {
+loadPromise.then(function () {
 	thumbnail.classList.add('is-active');
-}).then((0, _lazyload.load)(_lazyload.lazyloads));
+}).then((0, _lazyload.load)(_lazyload.lazyloads)).then(function () {
+	fetch('data/quotes.json').then(function (response) {
+		return response.json();
+	}).then(function (json) {
+		var step = 0;
+		var intervalPromise = new Promise(function (resolve) {
+			resolve();
+		});
+
+		window.setInterval(function () {
+			step = (step + 1) % json.quotes.length;
+			var img = thumbnail.querySelector('img');
+			intervalPromise.then(function () {
+				quote.style.opacity = '0';
+				label.style.opacity = '0';
+				img.style.opacity = '0';
+			}).then(function () {
+				setTimeout(function () {
+					quote.textContent = json.quotes[step].quote;
+					label.textContent = json.quotes[step].label;
+					img.src = 'images/' + json.quotes[step].image;
+				}, duration);
+			}).then(function () {
+				setTimeout(function () {
+					quote.style.opacity = '1';
+					label.style.opacity = '1';
+					img.style.opacity = '1';
+				}, duration);
+			});
+		}, delay);
+	});
+});
 
 window.addEventListener('resize', function () {
 	windowWidth = window.innerWidth;
@@ -81,34 +112,6 @@ window.addEventListener('resize', function () {
 
 mask.addEventListener('contextmenu', function (e) {
 	e.preventDefault();
-});
-
-fetch('data/quotes.json').then(function (response) {
-	return response.json();
-}).then(function (json) {
-	var step = 0;
-
-	window.setInterval(function () {
-		step = (step + 1) % json.quotes.length;
-		var img = thumbnail.querySelector('img');
-		promise.then(function () {
-			quote.style.opacity = '0';
-			label.style.opacity = '0';
-			img.style.opacity = '0';
-		}).then(function () {
-			setTimeout(function () {
-				quote.textContent = json.quotes[step].quote;
-				label.textContent = json.quotes[step].label;
-				img.src = 'images/' + json.quotes[step].image;
-			}, duration);
-		}).then(function () {
-			setTimeout(function () {
-				quote.style.opacity = '1';
-				label.style.opacity = '1';
-				img.style.opacity = '1';
-			}, duration);
-		});
-	}, delay);
 });
 
 },{"./lazyload":5}],4:[function(require,module,exports){

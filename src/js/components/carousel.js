@@ -14,16 +14,51 @@ const duration = 1500
 let windowWidth = window.innerWidth
 let offsetRight = windowWidth - thumbnail.offsetLeft - thumbnail.offsetWidth
 
-const promise = new Promise(resolve => {
+const loadPromise = new Promise(resolve => {
 	thumbnail.style.transform = `translateX(${offsetRight}px)`
 	resolve()
 })
 
-promise
+loadPromise
 	.then(() => {
 		thumbnail.classList.add('is-active')
 	})
 	.then(load(lazyloads))
+	.then(() => {
+		fetch('data/quotes.json')
+			.then(response => response.json())
+			.then(json => {
+				let step = 0
+				const intervalPromise = new Promise(resolve => {
+					resolve()
+				})
+
+				window.setInterval(() => {
+					step = (step + 1) % json.quotes.length
+					const img = thumbnail.querySelector('img')
+					intervalPromise
+						.then(() => {
+							quote.style.opacity = '0'
+							label.style.opacity = '0'
+							img.style.opacity   = '0'
+						})
+						.then(() => {
+							setTimeout(() => {
+								quote.textContent = json.quotes[step].quote
+								label.textContent = json.quotes[step].label
+								img.src = `images/${json.quotes[step].image}`
+							}, duration)
+						})
+						.then(() => {
+							setTimeout(() => {
+								quote.style.opacity = '1'
+								label.style.opacity = '1'
+								img.style.opacity   = '1'
+							}, duration)
+						})
+				}, delay)
+			})
+	})
 
 window.addEventListener('resize', () => {
 	windowWidth = window.innerWidth
@@ -35,34 +70,3 @@ window.addEventListener('resize', () => {
 mask.addEventListener('contextmenu', e => {
 	e.preventDefault()
 })
-
-fetch('data/quotes.json')
-	.then(response => response.json())
-	.then(json => {
-		let step = 0
-
-		window.setInterval(() => {
-			step = (step + 1) % json.quotes.length
-			const img = thumbnail.querySelector('img')
-			promise
-				.then(() => {
-					quote.style.opacity = '0'
-					label.style.opacity = '0'
-					img.style.opacity   = '0'
-				})
-				.then(() => {
-					setTimeout(() => {
-						quote.textContent = json.quotes[step].quote
-						label.textContent = json.quotes[step].label
-						img.src = `images/${json.quotes[step].image}`
-					}, duration)
-				})
-				.then(() => {
-					setTimeout(() => {
-						quote.style.opacity = '1'
-						label.style.opacity = '1'
-						img.style.opacity   = '1'
-					}, duration)
-				})
-		}, delay)
-	})
