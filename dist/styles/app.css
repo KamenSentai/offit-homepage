@@ -1122,6 +1122,18 @@ main {
     .topbar-item a[href^="mailto"]::before {
       content: url(../images/mail.svg);
       margin-right: 1rem; }
+  .topbar-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .topbar-button {
+    -webkit-transition: color .125s ease-in-out;
+    transition: color .125s ease-in-out; }
+    .topbar-button:hover {
+      color: #00C4C7; }
   .topbar.is-hidden {
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%); }

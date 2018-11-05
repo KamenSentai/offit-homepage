@@ -47,6 +47,19 @@
 		}
 	}
 
+	&-icon {
+		display: flex;
+		align-items: center;
+	}
+
+	&-button {
+		transition: color .125s ease-in-out;
+
+		&:hover {
+			color: $green;
+		}
+	}
+
 	&.is-hidden {
 		transform: translateY(-100%);
 	}

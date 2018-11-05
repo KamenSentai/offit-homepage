@@ -1,11 +1,11 @@
-import {titles} from './header'
-import {topbar} from './topbar'
-import {post} from './post'
-import {shapes} from './shape'
-import {wysiwyg} from './wysiwyg'
+import {titles}       from './header'
+import {topbar}       from './topbar'
+import {heightTopbar} from './topbar'
+import {post}         from './post'
+import {shapes}       from './shape'
+import {wysiwyg}      from './wysiwyg'
 
-const heightTopbar = topbar.offsetHeight
-let windowHeight   = window.innerHeight
+let windowHeight = window.innerHeight
 
 window.addEventListener('resize', () => {
 	windowHeight = window.innerHeight

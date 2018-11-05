@@ -244,7 +244,6 @@ var _shape = require('./shape');
 
 var _wysiwyg = require('./wysiwyg');
 
-var heightTopbar = _topbar.topbar.offsetHeight;
 var windowHeight = window.innerHeight;
 
 window.addEventListener('resize', function () {
@@ -254,7 +253,7 @@ window.addEventListener('resize', function () {
 window.addEventListener('scroll', function () {
 	_header.titles.style.transform = 'translate(-50%, calc(-50% - ' + window.scrollY + 'px / 5))';
 
-	if (window.scrollY > heightTopbar) {
+	if (window.scrollY > _topbar.heightTopbar) {
 		_topbar.topbar.classList.remove('is-hidden');
 	} else {
 		_topbar.topbar.classList.add('is-hidden');
@@ -272,7 +271,7 @@ window.addEventListener('scroll', function () {
 			var shape = _step.value;
 
 			if (shape.classList.contains('shape--article')) {
-				if (wysiwygTop - heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
+				if (wysiwygTop - _topbar.heightTopbar < 0 && postTop - windowHeight / 2 > 0) {
 					shape.classList.add('is-active');
 				} else {
 					shape.classList.remove('is-active');
@@ -307,9 +306,50 @@ var shapes = exports.shapes = Array.from(document.querySelectorAll('.shape'));
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 var topbar = exports.topbar = document.querySelector('.topbar');
+var heightTopbar = exports.heightTopbar = topbar.offsetHeight;
+
+var buttons = Array.from(topbar.querySelectorAll('.topbar-button'));
+
+var _loop = function _loop(button) {
+	var target = document.querySelector('.' + button.dataset.target);
+
+	button.addEventListener('click', function (e) {
+		e.preventDefault();
+		window.scroll({
+			top: target.offsetTop - heightTopbar,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+};
+
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+	for (var _iterator = buttons[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+		var button = _step.value;
+
+		_loop(button);
+	}
+} catch (err) {
+	_didIteratorError = true;
+	_iteratorError = err;
+} finally {
+	try {
+		if (!_iteratorNormalCompletion && _iterator.return) {
+			_iterator.return();
+		}
+	} finally {
+		if (_didIteratorError) {
+			throw _iteratorError;
+		}
+	}
+}
 
 },{}],11:[function(require,module,exports){
 'use strict';
