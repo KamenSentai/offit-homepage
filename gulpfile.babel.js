@@ -62,7 +62,7 @@ const message = {
 
 // Server
 
-gulp.task('server', ['data', 'images', 'styles', 'scripts', 'views'], () => {
+gulp.task('server', ['data', 'favicons', 'images', 'styles', 'scripts', 'views'], () => {
   browserSync.init({
     proxy   : `http://localhost/${local}${config.dist}`,
     browser : 'Google Chrome'
@@ -93,6 +93,25 @@ gulp.task('data', () => {
     .pipe(browserSync.stream())
     .pipe($.notify({
       title   : 'JSON',
+      message : message.exported,
+      sound   : 'beep'
+    }))
+})
+
+// Favicons
+
+gulp.task('favicons', () => {
+  return gulp.src(`${config.src}favicons/*.*`)
+    .pipe($.plumber())
+    .on('error', $.notify.onError({
+      title   : 'Favicons',
+      message : message.error,
+      sound   : 'beep'
+    }))
+    .pipe(gulp.dest(`${config.dist}favicons/`))
+    .pipe(browserSync.stream())
+    .pipe($.notify({
+      title   : 'Favicons',
       message : message.exported,
       sound   : 'beep'
     }))
