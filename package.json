@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KamenSentai/offit-homepage.git"
+    "url": "git+https://github.com/KamenSentai/Offit-Homepage.git"
   },
   "author": "Alain Cao Van Truong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KamenSentai/offit-homepage/issues"
+    "url": "https://github.com/KamenSentai/Offit-Homepage/issues"
   },
-  "homepage": "https://github.com/KamenSentai/offit-homepage#readme",
+  "homepage": "https://github.com/KamenSentai/Offit-Homepage#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
