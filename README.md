@@ -4,7 +4,7 @@
 [Offit](http://www.offit.com) homepage for a request for proposal school project.
 
 ## Preview
-[kamensentai.github.io/Offit-Homepage/dist/](https://kamensentai.github.io/offit-homepage/dist/)
+[kamensentai.github.io/Offit-Homepage/dist/](https://kamensentai.github.io/Offit-Homepage/dist/)
 
 ## Team
 |Last name     |First name|
